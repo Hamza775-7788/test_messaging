@@ -37,7 +37,7 @@ function sendPostRequest($url, $body, $authToken)
 
 
 
-function sendGCM($title, $message, $token)
+function sendGCM($title, $message, $topic)
 {
 
 
@@ -46,7 +46,7 @@ function sendGCM($title, $message, $token)
 
     $body = array(
         "message" => array(
-            "token" => $token,
+            "topic" => $topic,
             "notification" => array(
                 "title" => $title,
                 "body" => $message
@@ -56,7 +56,7 @@ function sendGCM($title, $message, $token)
     );
 
     $authToken = getAccessToken();
-    sendPostRequest($url, $body, $authToken);
+    return  sendPostRequest($url, $body, $authToken);
 }
 $tokne = "fhyZE8SlQh6eOqPBuUbyMl:APA91bEpJbLIdw05UrQRs5SC3UZKlUJ4jFGPEmEfMeQjZ8hbsnrWn_VJGSugbwWBsGR3p7Vx7rbra58bRIo-LlrejClhnxYYjGlL4n-XJrnuEwjCix9Ndlc";
- echo sendGCM("Hi", "hi from php api ", $tokne);
+echo sendGCM("Hi welcome", "hi from php api topice ", "hamza");
